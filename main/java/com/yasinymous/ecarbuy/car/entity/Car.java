@@ -1,33 +1,37 @@
 package com.yasinymous.ecarbuy.car.entity;
 
 
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document(collation = "car")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
 public class Car {
 
     private String id;
-    private String Brandid;
-    private String Model;
-    private String Model_year;
-    private String VehicleType;
-    private String CaseType;
-    private String Customname;
-    private double Motor;
-    private double Hp;
-    private String Fuel;
-    private String Gear;
-    private String Km;
-    private double Price;
-    private String Code;
+    private String brand;
+    private String model;
+    private int modelYear;
+    private String type;
+    private String caseType;
+    private String customName;
+    private double motor;
+    private double hp;
+    private String fuel;
+    private String gear;
+    private double km;
+    private double price;
+    private String code;
     private Boolean status;
-    private List<CarImage> carImage;
+    private List<CarImage> image;
 
 
 /*

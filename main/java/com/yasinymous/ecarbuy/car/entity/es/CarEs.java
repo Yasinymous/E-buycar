@@ -1,30 +1,34 @@
 package com.yasinymous.ecarbuy.car.entity.es;
 
+import com.yasinymous.ecarbuy.car.entity.CarImage;
+import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.elasticsearch.annotations.Document;
 
+import java.util.List;
+
 @Document(indexName = "car")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
+@Builder
 public class CarEs {
     private String id;
-    private BrandEs Brand;
-    private String Model;
-    private String Model_year;
-    private String VehicleType;
-    private String CaseType;
-    private String Customname;
-    private double Motor;
-    private double Hp;
-    private String Fuel;
-    private String Gear;
-    private String Km;
-    private double Price;
-    private String Code;
+    private String brand;
+    private String model;
+    private int modelYear;
+    private String type;
+    private String caseType;
+    private String customName;
+    private double motor;
+    private double hp;
+    private String fuel;
+    private String gear;
+    private double km;
+    private double price;
+    private String code;
     private Boolean status;
-    private CategoryEs Categoryid;
-
+    private List<CarImage> image;
 }
