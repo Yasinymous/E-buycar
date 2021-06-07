@@ -61,7 +61,7 @@ public class CarService {
             return null;
         }
        return CarResponse.builder()
-                .price(carPriceService.getByMoney(item.getId()))
+                .price(carPriceService.getByMoney(item.getId(),item.getPrice()).getPrice())
                 .id(item.getId())
                 .brand(item.getBrand())
                 .model(item.getModel())
@@ -72,6 +72,7 @@ public class CarService {
                 .motor(item.getMotor())
                 .hp(item.getHp())
                 .fuel(item.getFuel())
+                .km(item.getKm())
                 .gear(item.getGear())
                 .status(item.getStatus())
                 .image(carImageService.getCarMainImage(item.getId()))

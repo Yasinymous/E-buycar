@@ -1,14 +1,17 @@
 package com.yasinymous.ecarbuy.car.model;
 
+import com.yasinymous.ecarbuy.car.entity.CarImage;
+import com.yasinymous.ecarbuy.car.entity.CarPrice;
 import lombok.Builder;
 import lombok.Data;
+
+import java.util.List;
 
 @Data
 @Builder
 public class CarResponse {
 
     private String id;
-    private String image;
     private String brand;
     private String model;
     private int modelYear;
@@ -19,10 +22,11 @@ public class CarResponse {
     private double hp;
     private String fuel;
     private String gear;
-    private String km;
+    private double km;
     private double price;
     private String code;
     private Boolean status;
+    private String image;
 
 
 }

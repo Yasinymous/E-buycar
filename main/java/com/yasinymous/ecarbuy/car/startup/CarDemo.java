@@ -23,12 +23,12 @@ public class CarDemo {
         Long countOfData = carService.count().block();
         assert countOfData != null;
         if (countOfData.equals(0L)){
-            IntStream.range(0, 12).forEach(car->{
+            IntStream.range(0, 6).forEach(car->{
                 carService.save(
                     CarSaveRequest.builder()
                             .id("")
                             .status(Boolean.TRUE)
-                            .image(List.of("https://garaj11.akamaized.net/a1/310_174/garaj11prod/listing/1797d929-d40a-40f1-b85d-d4b659512ca3/0c96463e-6fae-4540-98c7-1493bc99b0d9.png"))
+                            .image(List.of("https://garaj11.akamaized.net/a1/310_174/garaj11prod/listing/d43016ed-ead7-429b-96df-f599d26d8aa7/b9f8644b-3661-4eb9-a448-670e2b8a08bd.png"))
                             .code("x")
                             .brand("Opel")
                             .model("Corsa")
@@ -47,4 +47,6 @@ public class CarDemo {
         }
 
     }
+
+
 }

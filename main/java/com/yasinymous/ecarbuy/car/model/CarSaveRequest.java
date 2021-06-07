@@ -1,5 +1,6 @@
 package com.yasinymous.ecarbuy.car.model;
 
+import com.yasinymous.ecarbuy.car.entity.CarImage;
 import lombok.Builder;
 import lombok.Data;
 
@@ -11,22 +12,20 @@ public class CarSaveRequest {
 
     private String id;
     private String brand;
-    private List<String> image;
     private String model;
     private int modelYear;
     private String type;
     private String caseType;
-    private double motor;
     private String customName;
+    private double motor;
     private double hp;
-
     private String fuel;
     private String gear;
     private double km;
-
     private double price;
-    private Boolean status;
     private String code;
+    private Boolean status;
+    private List<String> image;
 
 }
 
