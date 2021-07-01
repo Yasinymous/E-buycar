@@ -21,17 +21,13 @@ public class FileStoreStartup {
     private final MinioClient minioClient;
     private final S3ConfigProperties s3ConfigProperties;
 
-
     @EventListener(ApplicationStartedEvent.class)
     public void init() throws Exception{
         boolean bucketExists = minioClient.bucketExists(BucketExistsArgs.builder()
                 .bucket(s3ConfigProperties.getBucket())
                 .build());
         if (!bucketExists){
-            minioClient.makeBucket(MakeBucketArgs.builder()
-                    .bucket(s3ConfigProperties.getBucket())
-                    .build());
-
+            minioClient.makeBucket(MakeBucketArgs.builder().bucket(s3ConfigProperties.getBucket()).build());
         }
 
     }

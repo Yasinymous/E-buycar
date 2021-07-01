@@ -1,6 +1,5 @@
 package com.yasinymous.ecarbuy.filestore.config;
 
-
 import io.minio.MinioClient;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -15,8 +14,4 @@ public class S3Configuration {
                 .endpoint(properties.getUrl())
                 .build();
     }
-
-
-
-
 }

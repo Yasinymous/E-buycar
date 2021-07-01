@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
 
-@Document(collation = "car")
+@Document(collection = "car")
 @Getter
 @Setter
 @EqualsAndHashCode(of = "id")
@@ -31,7 +31,7 @@ public class Car {
     private double price;
     private String code;
     private Boolean status;
-    private List<CarImage> image;
+    private List<CarImage> carImage;
 
 
 /*

@@ -3,6 +3,7 @@ package com.yasinymous.ecarbuy.car.startup;
 
 import com.yasinymous.ecarbuy.car.model.CarResponse;
 import com.yasinymous.ecarbuy.car.model.CarSaveRequest;
+import com.yasinymous.ecarbuy.car.repository.es.CarEsRepository;
 import com.yasinymous.ecarbuy.car.service.CarService;
 import com.yasinymous.ecarbuy.filestore.service.FileStoreService;
 import lombok.RequiredArgsConstructor;
@@ -28,7 +29,7 @@ import static java.util.UUID.randomUUID;
 public class CarDemo {
 
     private final CarService carService;
-
+    private final CarEsRepository carEsRepository;
     private final FileStoreService fileStoreService;
 
     @EventListener(ApplicationReadyEvent.class)
@@ -37,14 +38,16 @@ public class CarDemo {
         Long countOfData = carService.count().block();
         assert countOfData != null;
         if (countOfData.equals(0L)){
+
+            carEsRepository.deleteAll().block();
+
             IntStream.range(0, 6).forEach(car->{
 
                 String imgid = UUID.randomUUID().toString();
                 // TODO rame yukleme arastir inputstream olarak yukleme
                 byte[] file = null;
                 try {
-                    file = Files.readAllBytes(ResourceUtils.getFile("classpath:test.jpeg").toPath());
-
+                    file = Files.readAllBytes(ResourceUtils.getFile("classpath:car-images/test.jpeg").toPath());
                 }catch(Exception e){
                     log.error("File Read error : ",e);
                 }
@@ -69,7 +72,6 @@ public class CarDemo {
                             .km(18.472)
                             .price(155.250)
                             .build());
-
                 });
         }
 

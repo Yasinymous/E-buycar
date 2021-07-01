@@ -30,5 +30,5 @@ public class CarEs {
     private double price;
     private String code;
     private Boolean status;
-    private List<CarImage> image;
+    private List<String> images;
 }

@@ -7,13 +7,10 @@ import org.springframework.stereotype.Component;
 
 @Data
 @Component
-@ConfigurationProperties("car.s3")
+@ConfigurationProperties("buycar.s3")
 public class S3ConfigProperties {
-
     private String url;
     private String accessKey;
     private String secretKey;
     private String bucket;
-
-
 }

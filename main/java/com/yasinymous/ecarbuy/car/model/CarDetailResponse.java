@@ -1,4 +1,4 @@
-package com.yasinymous.ecarbuy.car.entity;
+package com.yasinymous.ecarbuy.car.model;
 
 import lombok.Builder;
 import lombok.Data;
@@ -7,7 +7,8 @@ import java.util.List;
 
 @Data
 @Builder
-public class CarDetails {
+public class CarDetailResponse {
+
     private String id;
     private String brand;
     private String model;
@@ -23,6 +24,7 @@ public class CarDetails {
     private double price;
     private String code;
     private Boolean status;
-    private List<String> carImage;
+    private List<String> images;
+
 
 }

@@ -1,6 +1,7 @@
 package com.yasinymous.ecarbuy.car.service;
 
 import com.yasinymous.ecarbuy.car.entity.Car;
+import com.yasinymous.ecarbuy.car.entity.CarImage;
 import com.yasinymous.ecarbuy.car.entity.es.CarEs;
 import com.yasinymous.ecarbuy.car.repository.es.CarEsRepository;
 import lombok.RequiredArgsConstructor;
@@ -8,6 +9,8 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -31,6 +34,9 @@ public class CarEsService {
                     .fuel(car.getFuel())
                     .gear(car.getGear())
                     .km(car.getKm())
+                    .images(car.getCarImage().stream()
+                               .map(CarImage::getUrl)
+                               .collect(Collectors.toList()))
                     .price(car.getPrice())
                     .id(car.getId())
                     .build());
@@ -38,6 +44,10 @@ public class CarEsService {
 
     public Flux<CarEs> findAll(){
         return carEsRepository.findAll();
+    }
+
+    public Mono<CarEs> findById(String id) {
+        return carEsRepository.findById(id);
     }
 
 }
