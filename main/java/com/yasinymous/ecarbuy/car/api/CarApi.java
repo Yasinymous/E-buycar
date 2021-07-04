@@ -2,6 +2,7 @@ package com.yasinymous.ecarbuy.car.api;
 
 import com.yasinymous.ecarbuy.car.model.CarDetailResponse;
 import com.yasinymous.ecarbuy.car.model.CarResponse;
+import com.yasinymous.ecarbuy.car.service.CarEsService;
 import com.yasinymous.ecarbuy.car.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class CarApi {
 
 
     @GetMapping("/{id}")
-    public Mono<CarDetailResponse> getProductDetail(@PathVariable("id") String id) {
+    public Mono<CarDetailResponse> getCarDetail(@PathVariable("id") String id) {
         return carService.getCarDetail(id);
     }
 
