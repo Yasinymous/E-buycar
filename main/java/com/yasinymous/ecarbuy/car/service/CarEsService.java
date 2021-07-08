@@ -22,7 +22,7 @@ public class CarEsService {
        return carEsRepository.save(
                CarEs.builder()
                     .status(Boolean.TRUE)
-                    .code("x")
+                    .code(car.getCode())
                     .brand(car.getBrand())
                     .model(car.getModel())
                     .motor(car.getMotor())

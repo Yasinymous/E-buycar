@@ -36,7 +36,7 @@ public class CarService {
     public CarResponse save(CarSaveRequest r){
        Car car = Car.builder()
                 .status(Boolean.TRUE)
-                .code("x")
+                .code(r.getCode())
                 .brand(r.getBrand())
                 .model(r.getModel())
                 .motor(r.getMotor())
